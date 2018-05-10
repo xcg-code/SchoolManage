@@ -18,4 +18,9 @@ public class AdminServiceImpl implements AdminService{
 		return adminMapper.list();
 	}
 
+	@Override
+	public Admin login(Admin admin) {
+		return adminMapper.login(admin.getAdminNum(),admin.getAdminPwd());
+	}
+
 }

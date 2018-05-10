@@ -16,6 +16,10 @@
 	<select id="get" parameterType="_int" resultType="Admin">
 		select * from admin where adminId= #{adminId}
 	</select>
+	
+	<select id="login" parameterType="String" resultType="Admin">
+		select * from admin where adminNum= #{0} and adminPwd=#{1}
+	</select>
 
 	<update id="update" parameterType="Admin">
 		update admin set adminName=#{adminName} where adminId=#{adminId}

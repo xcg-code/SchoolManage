@@ -55,20 +55,20 @@
                     <div class="login-box-plain">
                         <h2 class="bigintro">校园场馆管理系统</h2>
                         <div class="divide-40"></div>
-                        <form role="form" method="post" action="__URL__/login">
+                        <form role="form" method="post" action="login">
                             <div class="form-group">
                                 <label for="exampleInputUsername">职工号</label>
                                 <i class="fa fa-user"></i>
-                                <input type="text" class="form-control"  name="userNumber">
+                                <input type="text" class="form-control"  name="adminNum">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">密码</label>
                                 <i class="fa fa-lock"></i>
-                                <input type="password" class="form-control"name="password">
+                                <input type="password" class="form-control"name="adminPwd">
                             </div>
                             <div class="form-actions">
                                 <label class="checkbox"> <input type="checkbox" class="uniform" value=""> 记住我</label>
-                                <button type="submit" class="btn btn-danger">登录</button>
+                                <button type="submit" class="btn btn-danger" >登录</button>
                             </div>
                         </form>
                         <div class="login-helpers">
@@ -89,7 +89,7 @@
                     <div class="login-box-plain">
                         <h2 class="bigintro">科研成果管理平台</h2>
                         <div class="divide-40"></div>
-                        <form role="form" method="post" action="__URL__/register">
+                        <form role="form" method="post" action="login">
                             <div class="form-group">
                                 <label for="exampleInputName">姓名</label>
                                 <i class="fa fa-font"></i>
@@ -180,6 +180,15 @@
 <script type="text/javascript" src="js/uniform/jquery.uniform.min.js"></script>
 <!-- CUSTOM SCRIPT -->
 <script src="js/script.js"></script>
+<script type="text/javascript">
+		function checkForm() {
+			if(!$("#adminNum").val()||!$("#adminPwd").val()) {
+				alert("职工号或密码不能为空！");
+				return false;
+			}
+			return true;
+		}
+	</script>
 <script>
     jQuery(document).ready(function () {
         App.setPage("login");  //Set current page

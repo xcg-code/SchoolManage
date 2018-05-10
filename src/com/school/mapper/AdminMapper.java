@@ -14,7 +14,7 @@ public interface AdminMapper {
     public void update(Admin admin);  
         
     public List<Admin> list();
-     
+    public Admin login(String adminNum,String adminPwd);
     public int count(); 
 
 }
