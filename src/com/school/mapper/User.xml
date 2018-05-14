@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.school.mapper.UserMapper">
+	<insert id="add" parameterType="Admin">
+		insert into student (
+		adminName,adminPwd,adminPhone,adminNum ) values
+		(#{adminName,adminPwd,adminPhone,adminNum})
+	</insert>
+	<select id="get" parameterType="_int" resultType="Admin">
+		select * from
+		admin where adminId= #{adminId}
+	</select>
+
+	<update id="update" parameterType="Admin">
+		update admin set
+		adminName=#{adminName} where adminId=#{adminId}
+	</update>
+	<select id="listStudent" resultType="User">
+		select * from student
+	</select>
+	<select id="listTeacher" resultType="User">
+		select * from teacher
+	</select>
+	<delete id="deleteStudent" parameterType="int">
+		delete from student where id= #{0}
+	</delete>
+	<delete id="deleteTeacher" parameterType="int">
+		delete from teacher where id= #{0}
+	</delete>
+
+</mapper>
+

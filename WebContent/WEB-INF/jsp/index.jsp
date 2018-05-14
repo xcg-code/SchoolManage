@@ -57,7 +57,7 @@
                         <div class="divide-40"></div>
                         <form role="form" method="post" action="login">
                             <div class="form-group">
-                                <label for="exampleInputUsername">职工号</label>
+                                <label for="exampleInputUsername">学工号</label>
                                 <i class="fa fa-user"></i>
                                 <input type="text" class="form-control"  name="adminNum">
                             </div>
