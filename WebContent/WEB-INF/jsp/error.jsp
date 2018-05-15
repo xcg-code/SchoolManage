@@ -5,7 +5,6 @@
 
 <html>
 <head>
-
 <title>ERROR!!</title>
 
 <meta http-equiv="pragma" content="no-cache">
@@ -21,26 +20,29 @@
 <body>
 	<table>
 		<tr>
-			<td><h2>
-					<s:property value="loginError" />
-				</h2></td>
+			<td><h2>${error}</h2>
+			</td>
 		</tr>
 		<tr>
-			<td><h2 id="time">3</h2>
-				<h3>${error}</h3></td>
-		</tr>
-		<tr>
-			<td><h3>正在为您跳转 . . .</h3></td>
+			<td><h3>正在为您跳转 . . .</h3>
+				<h2 id="time">3</h2>
+			</td>
 		</tr>
 	</table>
 	<script type="text/javascript">
-		setTimeout("history.go(-1)", 3000);
-	</script>
-	<SCRIPT language=javascript>
-		function go() {
-			window.history.go(-1);
+		function toNextPage() {
+			var currenttime = document.getElementById("time").innerHTML;
+			if (currenttime > 0) {
+				currenttime--;
+				document.getElementById("time").innerHTML = currenttime;
+			} else {
+				window.history.go(-1);
+			}
+			setTimeout("toNextPage()", 1000);
 		}
-		setTimeout("go()", 3000);
-	</SCRIPT>
+	</script>
+	<script type="text/javascript">
+		toNextPage();
+	</script>
 </body>
 </html>

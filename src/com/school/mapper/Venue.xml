@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.school.mapper.VenueMapper">
+	<insert id="add" parameterType="String">
+		insert into venue (name) values (#{0})
+	</insert>
+	<select id="list" resultType="Venue">
+		select * from venue
+	</select>
+	<delete id="delete" parameterType="int">
+		delete from venue where id= #{0}
+	</delete>
+</mapper>
+

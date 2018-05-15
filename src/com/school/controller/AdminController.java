@@ -41,8 +41,22 @@ public class AdminController {
 		if (user != null) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("admin", user);
+			session.setAttribute("adminNum", user.getAdminNum());
 			mav.setViewName("redirect:/profile");
+		} else {
+			// 放入转发参数
+			HttpSession session = request.getSession(true);
+			session.setAttribute("error", "用户名或密码错误");
+			// 放入jsp路径
+			mav.setViewName("redirect:/error");
 		}
+		return mav;
+	}
+
+	@RequestMapping("error")
+	public ModelAndView error() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("error");
 		return mav;
 	}
 
@@ -59,15 +73,30 @@ public class AdminController {
 		mav.setViewName("changePwd");
 		return mav;
 	}
-	
+
 	@RequestMapping("change")
-	public ModelAndView change(SessionStatus sessionStatus) {
-		sessionStatus.setComplete();
+	public ModelAndView change(SessionStatus sessionStatus,
+			HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/");
+		// 放入转发参数
+		HttpSession session = request.getSession(true);
+		String adminNum = (String) session.getAttribute("adminNum");
+		String pwd1 = request.getParameter("newPassword");
+		String pwd2 = request.getParameter("newPassword2");
+		if (!pwd1.equals(pwd2)) {
+			// 放入转发参数
+			session.setAttribute("error", "密码不一致！");
+			// 放入jsp路径
+			mav.setViewName("redirect:/error");
+			return mav;
+		}
+		if (adminService.changePwd(adminNum,pwd1)!=0) {
+			sessionStatus.setComplete();
+			mav.setViewName("redirect:/");
+		}
 		return mav;
 	}
-	
+
 	@RequestMapping("logout")
 	public ModelAndView logout(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();

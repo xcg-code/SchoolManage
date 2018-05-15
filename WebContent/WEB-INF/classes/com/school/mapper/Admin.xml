@@ -24,6 +24,9 @@
 	<update id="update" parameterType="Admin">
 		update admin set adminName=#{adminName} where adminId=#{adminId}
 	</update>
+	<update id="changePwd" parameterType="String">
+		update admin set adminPwd=#{1} where adminNum=#{0}
+	</update>
 	<select id="list" resultType="Admin">
 		select * from admin
 	</select>

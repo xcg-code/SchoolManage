@@ -23,4 +23,10 @@ public class AdminServiceImpl implements AdminService{
 		return adminMapper.login(admin.getAdminNum(),admin.getAdminPwd());
 	}
 
+	@Override
+	public int changePwd(String adminNum, String pwd) {
+		return adminMapper.changePwd(adminNum,pwd);
+		
+	}
+
 }

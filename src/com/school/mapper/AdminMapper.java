@@ -11,7 +11,8 @@ public interface AdminMapper {
         
     public Admin get(int adminId); 
       
-    public void update(Admin admin);  
+    public void update(Admin admin);
+    public int changePwd(String adminNum,String pwd);
         
     public List<Admin> list();
     public Admin login(String adminNum,String adminPwd);

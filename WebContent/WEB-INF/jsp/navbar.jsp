@@ -36,12 +36,21 @@
 							class="sub-menu-text">查看预定信息</span> </a>
 					</li>
 					<li><a class=""
-						href="http://localhost/PaperManager/index.php/Home/Project/my_project"><span
+						href="venueType"><span
 							class="sub-menu-text">场馆类别管理</span> </a></li>
 					<li><a class=""
-						href="http://localhost/PaperManager/index.php/Home/Achievement/project_type"><span
+						href="notice"><span
 							class="sub-menu-text">发布通知</span> </a>
 					</li>
+				</ul>
+			</li>
+			<li class="has-sub"><a href="javascript:;" class=""> <i
+					class="fa fa-briefcase fa-fw"></i> <span class="menu-text">信息查看<span
+						class="badge pull-right"></span> </span> <span class="arrow"></span> </a>
+				<ul class="sub">
+					<li><a class=""
+						href="listStudent"><span
+							class="sub-menu-text">举报信息</span> </a></li>
 				</ul>
 			</li>
 		</ul>
